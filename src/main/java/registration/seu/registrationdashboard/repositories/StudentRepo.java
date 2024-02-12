@@ -9,6 +9,8 @@ import registration.seu.registrationdashboard.Entities.Student;
 import java.util.List;
 
 public interface StudentRepo extends MongoRepository<Student, String> {
-    @Update("{ '$push': { 'assignedCourses': {'$each': ?1} } }")
-    void findAndPushAssignedCoursesBy_id(String _id, List<Course> assignedCourses);
+
+    Student findByStudentId(String studentId);
+    @Update("{ '$addToSet': { 'assignedCourses': {'$each': ?1} } }")
+    void findAndPushAssignedCoursesByStudentId(String _id, List<Course> assignedCourses);
 }

@@ -19,19 +19,27 @@ public class StudentController {
 
     @PostMapping("/create-student")
     Student createStudent(@RequestBody Student student) {
-        return studentRepo.save(student);
+        if (studentRepo.findByStudentId(student.studentId()) != null) {
+            return studentRepo.save(student);
+        } else{
+            return null;
+        }
     }
 
     @GetMapping("get-student-list")
     List<Student> getCourseList() {
         return studentRepo.findAll();
     }
+    @GetMapping("get-student-info/{studentId}")
+    Student getStudentInfo(@PathVariable String studentId) {
+        return studentRepo.findByStudentId(studentId);
+    }
 
     @PostMapping("assign-courses")
     void assignCourses(@RequestBody AssignedCoursesInfo assignedCoursesInfo) {
-        String _id = assignedCoursesInfo.selectedStudent()._id();
+        String _id = assignedCoursesInfo.selectedStudent().studentId();
         List<Course> assignedCourses = assignedCoursesInfo.selectedCourses();
-        studentRepo.findAndPushAssignedCoursesBy_id(_id, assignedCourses);
+        studentRepo.findAndPushAssignedCoursesByStudentId(_id, assignedCourses);
     }
 
 }
