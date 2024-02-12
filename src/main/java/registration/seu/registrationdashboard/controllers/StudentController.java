@@ -16,9 +16,9 @@ public class StudentController {
         this.studentRepo = studentRepo;
     }
 
-//    @PostMapping("/create-student")
-//    Student createStudent(@RequestBody Student student){
-//
-//    }
+    @PostMapping("/create-student")
+    Student createStudent(@RequestBody Student student){
+        return studentRepo.save(student);
+    }
 
 }
