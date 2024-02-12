@@ -35,8 +35,4 @@ public class CourseController {
         return courseRepo.findAll();
     }
 
-    @PostMapping("assign-courses")
-    void assignCourses(@RequestBody AssignedCoursesInfo assignedCoursesInfo){
-        System.out.println(assignedCoursesInfo.selectedCourses());
-    }
 }
