@@ -1,6 +1,7 @@
 package registration.seu.registrationdashboard.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import registration.seu.registrationdashboard.Entities.AssignedCoursesInfo;
 import registration.seu.registrationdashboard.Entities.Course;
 import registration.seu.registrationdashboard.repositories.CourseRepo;
 
@@ -32,5 +33,10 @@ public class CourseController {
     @GetMapping("get-course-list")
     List<Course> getCourseList(){
         return courseRepo.findAll();
+    }
+
+    @PostMapping("assign-courses")
+    void assignCourses(@RequestBody AssignedCoursesInfo assignedCoursesInfo){
+        System.out.println(assignedCoursesInfo.selectedCourses());
     }
 }

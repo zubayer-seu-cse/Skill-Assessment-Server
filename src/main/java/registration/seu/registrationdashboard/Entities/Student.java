@@ -13,6 +13,7 @@ public record Student(
         String gender,
         List<String> phones,
         List<Education> education,
-        String address
+        String address,
+        List<Course> assignedCourses
 ) {
 }
