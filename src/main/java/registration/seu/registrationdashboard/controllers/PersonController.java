@@ -24,7 +24,8 @@ public class PersonController {
 
     @PostMapping("/create-admin-account")
     Person createAdminAccount(@RequestBody Person person) {
-        System.out.println(verificationKeyRepo.findByUniqueKey("aksdjffa123"));
+        // this line is checking if any other person have already been register with the same
+        // email or not. And if the provided verification key is present in the database
         if (personsRepo.findByEmail(person.email()) == null
                 &&
                 verificationKeyRepo.findByUniqueKey(person.verification_key()) != null) {
