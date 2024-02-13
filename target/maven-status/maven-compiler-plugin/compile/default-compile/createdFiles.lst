@@ -1,0 +1,16 @@
+registration\seu\registrationdashboard\controllers\PersonController.class
+registration\seu\registrationdashboard\controllers\StudentController.class
+registration\seu\registrationdashboard\Entities\Student.class
+registration\seu\registrationdashboard\Entities\Person.class
+registration\seu\registrationdashboard\repositories\PersonsRepo.class
+registration\seu\registrationdashboard\Entities\ErrorMessage.class
+registration\seu\registrationdashboard\repositories\StudentRepo.class
+registration\seu\registrationdashboard\Entities\Education.class
+registration\seu\registrationdashboard\Entities\Name.class
+registration\seu\registrationdashboard\controllers\CourseController.class
+registration\seu\registrationdashboard\repositories\VerificationKeyRepo.class
+registration\seu\registrationdashboard\Entities\VerificationKey.class
+registration\seu\registrationdashboard\repositories\CourseRepo.class
+registration\seu\registrationdashboard\RegistrationDashboardApplication.class
+registration\seu\registrationdashboard\Entities\Course.class
+registration\seu\registrationdashboard\Entities\AssignedCoursesInfo.class
