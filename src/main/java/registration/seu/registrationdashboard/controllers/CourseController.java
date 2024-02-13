@@ -32,8 +32,8 @@ public class CourseController {
         return true;
     }
 
-    @GetMapping("search-courses/{keyword}")
-    List<Course> searchCourses(@PathVariable String keyword){
+    @PostMapping("search-courses")
+    List<Course> searchCourses(@RequestBody String keyword){
         return courseRepo.search(keyword);
     }
 }

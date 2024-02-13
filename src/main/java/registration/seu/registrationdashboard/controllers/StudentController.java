@@ -54,8 +54,8 @@ public class StudentController {
         return true;
     }
 
-    @GetMapping("search-student/{keyword}")
-    List<Student> searchStudent(@PathVariable String keyword){
+    @PostMapping("search-student")
+    List<Student> searchStudent(@RequestBody String keyword){
         return studentRepo.search(keyword);
     }
 }
