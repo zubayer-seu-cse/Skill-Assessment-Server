@@ -19,7 +19,7 @@ public class StudentController {
 
     @PostMapping("/create-student")
     Student createStudent(@RequestBody Student student) {
-        if (studentRepo.findByStudentId(student.studentId()) != null) {
+        if (studentRepo.findByStudentId(student.studentId()) == null) {
             return studentRepo.save(student);
         } else{
             return null;
@@ -42,4 +42,15 @@ public class StudentController {
         studentRepo.findAndPushAssignedCoursesByStudentId(_id, assignedCourses);
     }
 
+    @PostMapping("/update-student")
+    Student updateStudent(@RequestBody Student student) {
+        System.out.println("hello");
+        return studentRepo.save(student);
+    }
+
+    @DeleteMapping("delete-student-account/{_id}")
+    boolean deleteStudent(@PathVariable String _id){
+        studentRepo.deleteById(_id);
+        return true;
+    }
 }

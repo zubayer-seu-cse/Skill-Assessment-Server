@@ -12,6 +12,7 @@ public record Student(
         Name name,
         String gender,
         List<String> phones,
+        List<String> emails,
         List<Education> education,
         String address,
         List<Course> assignedCourses
