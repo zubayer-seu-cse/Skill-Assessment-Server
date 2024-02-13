@@ -16,11 +16,6 @@ public class PersonController {
 
     @PostMapping("/login")
     Person login(@RequestBody Person person){
-        Person fetchedPerson = personsRepo.findByUsernameAndPassword(person.username(), person.password());
-        if(fetchedPerson != null){
-            return fetchedPerson;
-        } else {
-            return new Person("N/A", "N/A", "N/A");
-        }
+        return personsRepo.findByUsernameAndPassword(person.username(), person.password());
     }
 }

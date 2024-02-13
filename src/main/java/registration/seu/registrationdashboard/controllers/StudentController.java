@@ -53,4 +53,9 @@ public class StudentController {
         studentRepo.deleteById(_id);
         return true;
     }
+
+    @GetMapping("search-student/{keyword}")
+    List<Student> searchStudent(@PathVariable String keyword){
+        return studentRepo.search(keyword);
+    }
 }

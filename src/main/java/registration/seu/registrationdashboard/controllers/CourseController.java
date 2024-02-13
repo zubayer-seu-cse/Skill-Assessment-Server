@@ -18,16 +18,7 @@ public class CourseController {
 
     @PostMapping("create-course")
     Course createCourse(@RequestBody Course course){
-        System.out.println(course.courseCode());
-
-
-        Course addedCourse = courseRepo.save(course);
-
-        if(addedCourse != null){
-            return addedCourse;
-        } else {
-            return new Course("N/A", "N/A", "N/A", 0);
-        }
+        return courseRepo.save(course);
     }
 
     @GetMapping("get-course-list")
@@ -35,4 +26,14 @@ public class CourseController {
         return courseRepo.findAll();
     }
 
+    @DeleteMapping("delete-course/{_id}")
+    boolean deleteCourse(@PathVariable String _id){
+        courseRepo.deleteById(_id);
+        return true;
+    }
+
+    @GetMapping("search-courses/{keyword}")
+    List<Course> searchCourses(@PathVariable String keyword){
+        return courseRepo.search(keyword);
+    }
 }
